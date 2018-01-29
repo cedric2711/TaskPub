@@ -1,0 +1,44 @@
+<form>
+    <% taskList.forEach(function(task, index) { %>
+        <div class="row taskBlock" id="<%= task._id %>" data-parent="<%=task.parent %>">
+            <div class="col-sm-6  row taskSpecified">
+                <div class="col-sm-2 columnIndent" style="padding-left:<%= task._level*10 %>px;">
+                    <%= (index+1)+'. '%>
+                </div>
+                <input type="text" class="form-control col-sm-10 name" value="<%= task.name %>">
+            </div>
+            <div class="col-sm-6 actionBlock container">
+                <div class="row">
+                    <div class="col-sm-4 statusButtonBlock">
+                        <div class="dropdown statusButton">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <%= task.status %>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonStatus">
+                                <a class="dropdown-item" data-value="Accepted">Accepted</a>
+                                <a class="dropdown-item" data-value="Complete">Complete</a>
+                                <a class="dropdown-item" data-value="InProgress">InProgress</a>
+                                <a class="dropdown-item" data-value="Rejected">Rejected</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 priorityButtonBlock">
+                        <div class=" col-sm-4 dropdown priorityButton">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <%= task.priority %>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonPriority">
+                                <a class="dropdown-item" data-value="Low">Low</a>
+                                <a class="dropdown-item" data-value="Medium">Medium</a>
+                                <a class="dropdown-item" data-value="High">High</a>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary addSubTask">Add</button>
+                    <button type="button" class="btn btn-primary deleteTask">Delete</button>
+                </div>
+            </div>
+        </div>
+
+        <% }); %>
+</form>

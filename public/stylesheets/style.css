@@ -1,0 +1,27 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+.columnIndent{
+  padding-left: 0px
+}
+.loggedIn {
+    float: right;
+    display: flex;
+}
+
+.logout {
+    color: #9696f5;
+    margin-left: 9px;
+}
+.userName {
+    margin-left: 3px;
+}
+button.btn.btn-primary.addSubTask {
+    margin-left: 2px;
+    margin-right: 2px;
+}

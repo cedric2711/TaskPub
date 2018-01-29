@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="/stylesheets/lib/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>My Tasks</title>
+    <style>
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+
+<body class="container">
+
+    <!--
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+-->
+    <script src="/javascripts/lib/jquery.3.3.1.js"></script>
+    <script src="/javascripts/lib/popper.min.js" ></script>
+    <script src="/javascripts/lib/bootstrap.min.js" ></script>
+    <script src="/javascripts/lib/underscore-min.js"></script>
+    <script src="/javascripts/lib/ejs.jquery.js"></script>
+    <script src="/javascripts/task.js"></script>
+
+    <h1>My Tasks</h1>
+    <div class="loggedIn">Welcome
+        <div class="userName">
+            <%=user%>
+        </div>
+        <a class="logout" href="/">logout</a>
+    </div>
+    <p>
+        <label for="newtodo">What shoud I do?</label>
+        <input type="text" name="name" id="taskName" autofocus />
+        <button type="button" class="btn btn-primary addTask">Add</button>
+    </p>
+    <div class="container filterTask">
+        <%- include("filterView",{}) %>
+
+    </div>
+    <hr>
+    <div class="container taskToShow">
+        <%- include("taskView",{"taskList":task}) %>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Employee List</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <div class="container">
+        <h3><a href="/employees/create">Create Employee</a></h3>
+        <h1>Employee List</h1>
+        <% if(employees.length>0) { %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Employee Name</th>
+                        <th>Position</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <% for(var i=0; i<employees.length;i++) { %>
+                        <tr>
+                            <td>
+                                <a href="/employees/show/<%= employees[i]._id%>">
+                                    <%= employees[i].name%>
+                                </a>
+                            </td>
+                            <td>
+                                <%= employees[i].position%>
+                            </td>
+                        </tr>
+                        <% } %>
+                </tbody>
+            </table>
+            <% } else { %>
+                <div>No employees found.</div>
+                <% } %>
+    </div>
+</body>
+
+</html>
+Create new HTML file for show employee page. touch views/employees/show.ejs Open and edit show.ejs then add this lines of HTML codes.
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Employee Detail</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <div class="container">
+        <h3><a href="/employees">Employee List</a></h3>
+        <h1>Employee Detail</h1>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Name</td>
+                    <td>:</td>
+                    <td>
+                        <%= employee.name %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>:</td>
+                    <td>
+                        <%= employee.address %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Position</td>
+                    <td>:</td>
+                    <td>
+                        <%= employee.position %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Salary</td>
+                    <td>:</td>
+                    <td>$
+                        <%= employee.salary %>/year</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3><a href="/employees/edit/<%= employee._id%>">EDIT</a></h3>
+        <form action="/employees/delete/<%= employee._id%>" method="post">
+            <button type="submit">DELETE</button>
+        </form>
+    </div>
+</body>
+
+</html>
