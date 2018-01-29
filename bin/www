@@ -21,10 +21,11 @@ app.set('port', port);
 
 var server = http.createServer(app);
 
+
 /**
  * Listen on provided port, on all network interfaces.
  */
-
+var url='cedric.handytrain.com'
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
@@ -83,6 +84,7 @@ function onError(error) {
 
 function onListening() {
   var addr = server.address();
+  //var addr =url;
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
