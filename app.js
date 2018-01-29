@@ -7,7 +7,8 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var _ = require("underscore-node");
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/taskDb')
+var mongoDB = process.env.MONGODB_URI || 'mongodb://localhost/taskDb';
+mongoose.connect(mongoDB)
     .then(() => console.log('connection succesful'))
     .catch((err) => console.error(err));
 
