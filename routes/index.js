@@ -8,4 +8,10 @@ router.get('/', function(req, res, next) {
     });
 });
 
+router.post('/error', function(req, res, next) {
+    res.render('index', {
+        title: 'Task Login'
+    });
+});
+
 module.exports = router;

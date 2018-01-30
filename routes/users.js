@@ -10,5 +10,6 @@ router.post('/validate', userCol.validate);
 
 router.post('/add', userCol.add);
 router.get('/list', userCol.list);
+router.get('/logout', userCol.logout);
 
 module.exports = router;
